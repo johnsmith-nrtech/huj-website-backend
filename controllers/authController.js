@@ -8,12 +8,16 @@ const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 // Used so a wrong email takes the same time as a wrong password
 const DUMMY_HASH = bcrypt.hashSync('not-a-real-password', 12);
 
-const cookieOptions = () => ({
-  httpOnly: true, // JavaScript in the browser cannot read this cookie
-  secure: process.env.NODE_ENV === 'production', // HTTPS only when live
-  sameSite: 'lax',
-  path: '/',
-});
+// Cookie settings: localhost uses Lax; online (vercel.app -> onrender.com) needs None + Secure
+function cookieOptions() {
+  const isProd = process.env.NODE_ENV === 'production';
+  return {
+    httpOnly: true,
+    secure: isProd, // HTTPS only when online
+    sameSite: isProd ? 'none' : 'lax',
+    path: '/',
+  };
+}
 
 /** POST /api/auth/login */
 async function login(req, res) {
