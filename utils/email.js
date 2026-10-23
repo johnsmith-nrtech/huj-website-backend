@@ -40,9 +40,7 @@ let logoAttachment = null;
 try {
   logoAttachment = {
     filename: 'hujj-logo.png',
-    content: fs
-      .readFileSync(path.join(__dirname, '..', '..', 'hujj-frontend', 'public', 'images', 'hujj-logo.png'))
-      .toString('base64'),
+    content: fs.readFileSync(path.join(TEMPLATE_DIR, 'images', 'hujj-logo.png')).toString('base64'),
     contentType: 'image/png',
     contentId: LOGO_CID,
   };
