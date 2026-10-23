@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>New website message</title>
+</head>
+<!--
+  Email sent to info@hujconsulting.com when someone submits a website form.
+  Placeholders ({{...}}) are filled in by utils/email.js.
+  Pressing "Reply" in your inbox replies straight to the visitor.
+-->
+<body style="margin:0; padding:0; background-color:#f4f6fa; font-family:Arial, Helvetica, sans-serif; color:#1a2236;">
+  <!-- Preview text shown in the inbox list -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    New message from {{name}} via the {{sourceLabel}}.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6fa;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; background-color:#ffffff; border-radius:12px; overflow:hidden; border:1px solid #e6e9ee;">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#0f1729; padding:24px 32px;">
+              <img src="{{logoSrc}}" alt="HUJ Technologies LLC" width="150" style="display:block; width:150px; height:auto; border:0; color:#ffffff; font-size:18px; font-weight:bold;" />
+            </td>
+          </tr>
+
+          <!-- Title -->
+          <tr>
+            <td style="padding:32px 32px 8px 32px;">
+              <p style="margin:0 0 8px 0; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#14987f;">
+                New website message
+              </p>
+              <h1 style="margin:0; font-size:22px; line-height:30px; color:#0f1f47;">
+                {{name}} sent a message from the {{sourceLabel}}
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Details -->
+          <tr>
+            <td style="padding:16px 32px 0 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e6e9ee; border-radius:8px;">
+                <tr>
+                  <td style="padding:12px 16px; width:110px; font-size:13px; color:#5b6472; border-bottom:1px solid #eef0f4;">Name</td>
+                  <td style="padding:12px 16px; font-size:14px; color:#0f1f47; border-bottom:1px solid #eef0f4;">{{name}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px; font-size:13px; color:#5b6472; border-bottom:1px solid #eef0f4;">Email</td>
+                  <td style="padding:12px 16px; font-size:14px; border-bottom:1px solid #eef0f4;">
+                    <a href="mailto:{{email}}" style="color:#14527a; text-decoration:underline;">{{email}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px; font-size:13px; color:#5b6472; border-bottom:1px solid #eef0f4;">Form</td>
+                  <td style="padding:12px 16px; font-size:14px; color:#0f1f47; border-bottom:1px solid #eef0f4;">{{sourceLabel}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px; font-size:13px; color:#5b6472;">Received</td>
+                  <td style="padding:12px 16px; font-size:14px; color:#0f1f47;">{{submittedAt}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message -->
+          <tr>
+            <td style="padding:24px 32px 0 32px;">
+              <p style="margin:0 0 8px 0; font-size:13px; color:#5b6472;">Message</p>
+              <div style="padding:16px; background-color:#f6f7fa; border-left:3px solid #4fe3d0; border-radius:4px; font-size:15px; line-height:24px; color:#1a2236;">
+                {{message}}
+              </div>
+            </td>
+          </tr>
+
+          <!-- Reply hint -->
+          <tr>
+            <td style="padding:24px 32px 32px 32px;">
+              <p style="margin:0; font-size:13px; line-height:20px; color:#5b6472;">
+                Press <strong>Reply</strong> to answer {{name}} directly, or reply from the admin panel.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:16px 32px; background-color:#f6f7fa; border-top:1px solid #e6e9ee; font-size:12px; color:#9aa3b2;">
+              Sent from the contact form on <a href="{{siteUrl}}" style="color:#9aa3b2;">{{siteHost}}</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

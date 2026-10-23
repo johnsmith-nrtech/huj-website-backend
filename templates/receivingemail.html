@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>{{heading}}</title>
+</head>
+<!--
+  Email the visitor receives. Used for two emails (see utils/email.js):
+    1. Instant confirmation after they submit a form
+    2. Your reply, written in the admin panel
+  Placeholders ({{...}}) are filled in by utils/email.js.
+-->
+<body style="margin:0; padding:0; background-color:#f4f6fa; font-family:Arial, Helvetica, sans-serif; color:#1a2236;">
+  <!-- Preview text shown in the inbox list -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    {{preview}}
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6fa;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; background-color:#ffffff; border-radius:12px; overflow:hidden; border:1px solid #e6e9ee;">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#0f1729; padding:24px 32px;">
+              <a href="{{siteUrl}}" style="text-decoration:none;">
+                <img src="{{logoSrc}}" alt="HUJ Technologies LLC" width="150" style="display:block; width:150px; height:auto; border:0; color:#ffffff; font-size:18px; font-weight:bold;" />
+              </a>
+            </td>
+          </tr>
+
+          <!-- Heading -->
+          <tr>
+            <td style="padding:32px 32px 0 32px;">
+              <h1 style="margin:0; font-size:22px; line-height:30px; color:#0f1f47;">{{heading}}</h1>
+              <span style="display:block; margin-top:12px; width:40px; height:3px; background-color:#4fe3d0; border-radius:2px; font-size:0; line-height:0;">&nbsp;</span>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:24px 32px 0 32px; font-size:15px; line-height:24px; color:#1a2236;">
+              <p style="margin:0 0 16px 0;">Hi {{name}},</p>
+              <div>{{body}}</div>
+              <p style="margin:24px 0 0 0;">
+                Best regards,<br />
+                <strong style="color:#0f1f47;">HUJ Consulting</strong>
+              </p>
+            </td>
+          </tr>
+
+          <!--ORIGINAL_START-->
+          <!-- The visitor's original message (removed automatically when empty) -->
+          <tr>
+            <td style="padding:28px 32px 0 32px;">
+              <p style="margin:0 0 8px 0; font-size:13px; color:#5b6472;">Your message ({{submittedAt}})</p>
+              <div style="padding:16px; background-color:#f6f7fa; border-left:3px solid #d9dde6; border-radius:4px; font-size:14px; line-height:22px; color:#5b6472;">
+                {{originalMessage}}
+              </div>
+            </td>
+          </tr>
+          <!--ORIGINAL_END-->
+
+          <!-- Button -->
+          <tr>
+            <td style="padding:28px 32px 32px 32px;">
+              <a href="{{siteUrl}}/services" style="display:inline-block; padding:12px 24px; background-color:#4fe3d0; color:#06263a; font-size:14px; font-weight:bold; text-decoration:none; border-radius:999px;">
+                Explore Our Services
+              </a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 32px; background-color:#0f1729; font-size:12px; line-height:20px; color:#c3c9d4;">
+              HUJ Technologies LLC &middot; Philadelphia, PA, United States<br />
+              <a href="mailto:{{contactEmail}}" style="color:#4fe3d0; text-decoration:none;">{{contactEmail}}</a>
+              &middot;
+              <a href="{{siteUrl}}" style="color:#4fe3d0; text-decoration:none;">{{siteHost}}</a>
+              <br />
+              You received this email because you contacted us through our website.
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
